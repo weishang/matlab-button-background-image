@@ -56,23 +56,10 @@ function bg_image_OpeningFcn(hObject, eventdata, handles, varargin)
 handles.output = hObject;
 
 % insert background to the push button 
-bg_image = imread('push.png');
-img_size = size(bg_image); 
-unitName = get(handles.pb_with_bg, 'unit');
-set(handles.pb_with_bg, 'unit','pixel');
-position = get(handles.pb_with_bg, 'position');
-position(3) = img_size(2); position(4) = img_size(1);
-set(handles.pb_with_bg, 'CData', bg_image, 'position', position, 'unit', unitName);
+insertBackground(handles.pb_with_bg, 'push.png');
 
+insertBackground(handles.tb_with_bg, 'toggle.png');
 
-% insert background to the toggle button 
-bg_image = imread('toggle.png');
-img_size = size(bg_image); 
-unitName = get(handles.tb_with_bg, 'unit');
-set(handles.tb_with_bg, 'unit','pixel');
-position = get(handles.tb_with_bg, 'position');
-position(3) = img_size(2); position(4) = img_size(1);
-set(handles.tb_with_bg, 'CData', bg_image, 'position', position, 'unit', unitName);
 
 % Update handles structure
 guidata(hObject, handles);
